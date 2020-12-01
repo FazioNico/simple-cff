@@ -1,0 +1,13 @@
+{
+  "appId": "ch.nicolasfazio.demosimplecff2020",
+  "appName": "SimpleCFF",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist/SimpleCFF",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

@@ -1,0 +1,26 @@
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h1>Rechercher une correspondance</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <form [formGroup]="form" (ngSubmit)="search()">
+          <ion-list>
+            <ion-item>
+              <ion-label position="stacked">De</ion-label>
+              <ion-input formControlName="from" placeholder="Départ"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">À</ion-label>
+              <ion-input formControlName="to" placeholder="Arrivée"></ion-input>
+            </ion-item>
+          </ion-list>
+          <ion-button type="submit">Rechercher</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
