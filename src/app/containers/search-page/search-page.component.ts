@@ -12,7 +12,7 @@ import { TimetableService } from 'src/app/services/timetable/timetable.service';
 export class SearchPageComponent implements OnInit {
 
   form: FormGroup;
-  result = null;
+  
   constructor(
     private _api: TimetableService,
     private _router: Router
