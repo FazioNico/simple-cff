@@ -20,4 +20,10 @@ export class TimetableService {
     const result = await this._http.get(url).toPromise().catch(err => err);
     this._resultSearch.next(result);
   }
+
+  async auto(term: string) {
+    const url = `https://timetable.search.ch/api/completion.fr.json?term=${term}`;
+    const result = await this._http.get(url).toPromise().catch(err => err);
+    return result;
+  }
 }

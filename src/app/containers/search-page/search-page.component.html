@@ -11,8 +11,13 @@
           <ion-list>
             <ion-item>
               <ion-label position="stacked">De</ion-label>
-              <ion-input formControlName="from" placeholder="Départ"></ion-input>
+              <ion-input (ionInput)="autoFrom($event)" formControlName="from" placeholder="Départ"></ion-input>
             </ion-item>
+            <ul *ngIf="itemsFrom?.length > 0">
+              <li *ngFor="let item of itemsFrom" (click)="selectFrom(item)">
+                {{item.label}}
+              </li>
+            </ul>
             <ion-item>
               <ion-label position="stacked">À</ion-label>
               <ion-input formControlName="to" placeholder="Arrivée"></ion-input>

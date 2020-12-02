@@ -12,7 +12,9 @@ import { TimetableService } from 'src/app/services/timetable/timetable.service';
 export class SearchPageComponent implements OnInit {
 
   form: FormGroup;
-  
+  itemsFrom: any [];
+  itemsTo: any [];
+
   constructor(
     private _api: TimetableService,
     private _router: Router
@@ -33,5 +35,37 @@ export class SearchPageComponent implements OnInit {
     console.log('result: ', result);
     if (!result?.connections) return;
     this._router.navigate(['result']);
+  }
+
+  /**
+   * Permet de générer une liste de suggestion 
+   * pour l'input avec le control `from`
+   * @param $event Event
+   */
+  async autoFrom($event) {
+    console.log($event.target.value);
+    const value = $event.target.value;
+    // si la longueur du mot est plus petit ou égale à 2
+    // je reset la liste de suggestion
+    if (value.length <= 2) {
+      this.itemsFrom = null;
+      return;
+    }
+    // sinon je fais la requête à l'api 
+    // avec la valeur saisie par l'utilisateur
+    this.itemsFrom = await this._api.auto(value);
+  }
+
+  /**
+   * Permet de selectionner la suggestion choisi par l'utilisateur 
+   * lors du click sur un element de la liste de suggestion
+   * @param item Element choisi par l'utilisateur
+   */
+  async selectFrom(item: any) {
+    // mise à jour du formulaire reactif
+    this.form.get('from').patchValue(item.label);
+    // reset de la liste de suggestion 
+    // pour faire disparaitre de l'affichage
+    this.itemsFrom = null;
   }
 }
