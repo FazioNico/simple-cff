@@ -15,13 +15,18 @@ export class ResultPageComponent implements OnInit {
   result$: Observable<any>;
 
   constructor(
-    private _api:  TimetableService
+    private _api:  TimetableService,
+    private _router: Router
   ) { }
 
   async ngOnInit() {
     this.result$ = this._api.resultSearch;
     const result = await this._api.resultSearch.pipe(first()).toPromise()
     console.log(result);
+    // if (!result) {
+    //   this._router.navigate(['']);
+    //   return;
+    // }
     this.result = result;
   }
 

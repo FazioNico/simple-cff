@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ResultPageComponent } from './containers/result-page/result-page.component';
 import { SearchPageComponent } from './containers/search-page/search-page.component';
+import { ResultGuard } from './guards/result/result.guard';
 
 
 const routes: Routes = [
@@ -11,7 +12,10 @@ const routes: Routes = [
   },
   {
     path: 'result',
-    component: ResultPageComponent
+    component: ResultPageComponent,
+    canActivate: [
+      ResultGuard
+    ],
   }
 ];
 
