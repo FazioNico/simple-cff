@@ -1,6 +1,6 @@
 {
-  "appId": "ch.nicolasfazio.demosimplecff2020",
-  "appName": "SimpleCFF",
+  "appId": "ch.ateliers.nomades.faziocffsimple",
+  "appName": "ch.ateliers.nomades.faziocffsimple",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist/SimpleCFF",
