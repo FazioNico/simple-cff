@@ -25,5 +25,19 @@
         ]
       }
     }
-  ]
+  ],
+  "dataGroups": [
+    {
+      "name": "timetable",
+      "urls": [
+        "https://timetable.search.ch/api/**"
+      ],
+      "cacheConfig": {
+        "maxAge": "5m",
+        "maxSize": 10,
+        "strategy": "performance"
+      }
+    }
+  ],
+  "navigationUrls": []
 }
